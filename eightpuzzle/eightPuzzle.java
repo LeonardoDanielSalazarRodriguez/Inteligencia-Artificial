@@ -1,8 +1,9 @@
 // Leonardo Daniel Salazar Rodriguez
+
 import java.util.*;
 
 
-public class eightPuzzle
+public class eightPuzzle 
 {
 
     public static void main(String[] args) 
@@ -13,22 +14,38 @@ public class eightPuzzle
         ArbolBusqueda arbolBusqueda = new ArbolBusqueda(raiz, objetivo);
      
         int opcion = 0;
-
-            System.out.println("Elige un modo de búsqueda: ");
+        
+            System.out.println("Escoja una opción:");
             System.out.println("1. Búsqueda primero en anchura");
             System.out.println("2. Búsqueda primero en profundidad");
+            System.out.println("3. Búsqueda heuristica 1");
+            System.out.println("4. Búsqueda heuristica 2");
+            System.out.println("5. Búsqueda heuristica 3");
             opcion = scanner.nextInt();
 
-            switch (opcion) {
+            switch (opcion) 
+            {
                 case 1:
-                    arbolBusqueda.busquedaAnchura();
+                    arbolBusqueda.busquedaPorAnchura();
                     break;
-                case 2:            
-                    arbolBusqueda.busquedaProfundidad();
+                case 2:
+                    arbolBusqueda.busquedaPorProfundidad();
+                    break;
+                case 3:
+                	arbolBusqueda.busquedaHeuristica(arbolBusqueda.new Heuristica1());
+                    break;
+                case 4:
+                	arbolBusqueda.busquedaHeuristica(arbolBusqueda.new Heuristica2());
+                    break;
+                case 5:            
+                    arbolBusqueda.busquedaHeuristica(arbolBusqueda.new Heuristica3());
                     break;
                 default:
-                    System.out.println("Es 1 o 2 nada más, vuelve a ejecutar el código");
+                    System.out.println("Opción inválida");
                     break;
             }
+
+         
     }
 }
+    
